@@ -1,7 +1,12 @@
 {
-  "name": "storybookjs_demo",
+  "name": "ttech_test_library",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "files": [ "dist", "README.md" ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/24HourDeveloper/storybookdemo"
+    },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
@@ -9,9 +14,6 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-scripts": "4.0.2",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -20,7 +22,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "clean": "rimraf dist",
+    "compile": "npm run clean && cross-env NODE_ENV=production babel src/components --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__"
   },
   "eslintConfig": {
     "extends": [
@@ -41,12 +45,19 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "@babel/preset-react": "^7.12.13",
     "@storybook/addon-actions": "^6.1.18",
     "@storybook/addon-controls": "^6.1.18",
     "@storybook/addon-essentials": "^6.1.18",
     "@storybook/addon-links": "^6.1.18",
     "@storybook/node-logger": "^6.1.18",
     "@storybook/preset-create-react-app": "^3.1.6",
-    "@storybook/react": "^6.1.18"
+    "@storybook/react": "^6.1.18",
+    "cross-env": "^7.0.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.2"
   }
 }
